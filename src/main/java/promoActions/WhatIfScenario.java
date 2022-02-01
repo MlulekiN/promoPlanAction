@@ -26,29 +26,19 @@ public class WhatIfScenario {
         String url = "https://to-pdi.salesperformanceplatform.com/xtelsp-automhfx/web/SM1V6/SM1.aspx?DBG=1";
         driver.get(url);
 
-//        String url = "https://to-pdi.salesperformanceplatform.com/xtelsp-autom/web/?DBG=1";
-//        driver.get(url);
-
         WebElement homeToolBar = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@sm1-id='homeToolbarMenuBTN']/descendant::span[@data-ref='btnIconEl']")));
         homeToolBar.click();
 
         WebElement promotionalActions = driver.findElement(By.xpath("//div[@sm1-id='PROMOACTION']/descendant::span[text()='Promotional actions'][1]"));
         promotionalActions.click();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@sm1-id='AddButton']"))).click();
 
-        WebElement customerSelect;
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@id,'sm1advancedentityselector')][1]/ancestor::div[@sm1-id='CUSTOMER']/descendant::div[@class='sm1-triggers']"))).click();
 
-        WebElement levelSelect;
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Level 3']/parent::td"))).click();
 
-        WebElement customerCode;
+
         for (int i = 0; i < 2; i++) {
             try {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-qtip='Customer code']/child::div[@data-ref='triggerEl']"))).click();
@@ -78,13 +68,11 @@ public class WhatIfScenario {
             } catch (StaleElementReferenceException ignored) {
             }
         }
-        WebElement okButton;
+
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//span[text()='OK']"))).get(1).click();
 
-        WebElement innerOkButton;
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(@id,'sm1okbutton')]/descendant::span[@data-ref='btnEl']"))).click();
 
-        WebElement sellInDate;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@sm1-id='DATE_SELLIN']/descendant::div[contains(@id,'sm1dateperiod')]/child::input[@value='Start Date']"))).click();
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[@id='ext-element-82']"))).click();
@@ -93,19 +81,14 @@ public class WhatIfScenario {
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='OK'][1]"))).click();
 
-        WebElement products;
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@sm1-id='TAB_H5_PRODUCTS']/descendant::span[text()='Products'][1]"))).click();
 
-        WebElement addButton;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@sm1-id='AddButton']"))).click();
 
-        WebElement chooseProduct;
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='BACCO PINOT 0.75 lt']"))).click();
 
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(@id,'sm1okbutton')]/span[text()='OK']"))).click();
 
-
-        WebElement cockPit;
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Cockpit']"))).click();
 
         driver.quit();
