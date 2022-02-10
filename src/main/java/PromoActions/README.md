@@ -1,4 +1,4 @@
-package promoActions;
+package PromoActions;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
