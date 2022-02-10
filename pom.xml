@@ -12,12 +12,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
-            <version>4.1.1</version>
+            <version>4.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>4.1.1</version>
+            <version>4.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
-            <version>4.1.1</version>
+            <version>4.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.example</groupId>
@@ -50,17 +50,23 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.1.1</version>
+            <version>4.1.2</version>
         </dependency>
         <dependency>
             <groupId>io.github.fslev</groupId>
             <artifactId>selenium-jutils</artifactId>
-            <version>1.12</version>
+            <version>1.13</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
             <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.5</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
