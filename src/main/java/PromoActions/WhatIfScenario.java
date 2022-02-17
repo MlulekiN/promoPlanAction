@@ -3,6 +3,7 @@ package PromoActions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class WhatIfScenario {
 
@@ -25,14 +27,19 @@ public class WhatIfScenario {
     @Test
     public void tpmWhatIfScenario() {
 
+        String customer_code = "EC12345";
+
         String url = "https://to-pdi.salesperformanceplatform.com/xtelsp-automhfx/web/SM1V6/SM1.aspx?DBG=1";
+        //String url = "https://to-pdi.salesperformanceplatform.com/xtelsp-autom/web/?DBG=1";
         driver.get(url);
         driver.manage().window().maximize();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(300));
 
 //        step 1, user opens the application - > expected: the application is open
-        WebElement homeToolBar = wait.until(ExpectedConditions.presenceOfElementLocated(Elements.homeToolBar));
+        WebElement homeToolBar = wait1.until(ExpectedConditions.presenceOfElementLocated(Elements.homeToolBar));
         homeToolBar.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
         // step 2, the user select the relevant tab to create promo - > expected: various promotions displayed
         WebElement promotionalActions = driver.findElement(Elements.promotionalActions);
@@ -49,18 +56,18 @@ public class WhatIfScenario {
         // step 5, the user selects customer level - > expected: level 3 which is the desired level to be selected
         WebElement levelChoose = wait.until(ExpectedConditions.elementToBeClickable(Elements.levelChoose));
         levelChoose.click();
-
-//        step 6, the user clicks on trigger to input the customer code - > expected: the trigger leads to the search option
-        WebElement customerCode = wait.until(ExpectedConditions.visibilityOfElementLocated(Elements.customerCode));
-        customerCode.click();
-
-        // step 7, input the customer code on search bar - > expected: the code to be populated on the 'like' bar
-        WebElement inputID = wait.until(ExpectedConditions.visibilityOfElementLocated(Elements.inputID));
-        inputID.sendKeys("EC94791");
-
-        // step 8 , select the ok button element - > expected: the ok button to be selected to displayed appropriate customer
-        WebElement okButtonElement = wait.until(ExpectedConditions.presenceOfElementLocated(Elements.okButtonElement));
-        okButtonElement.click();
+//
+////        step 6, the user clicks on trigger to input the customer code - > expected: the trigger leads to the search option
+//        WebElement customerCode = wait.until(ExpectedConditions.elementToBeClickable(Elements.customerCode));
+//        customerCode.click();
+//
+//        // step 7, input the customer code on search bar - > expected: the code to be populated on the 'like' bar
+//        WebElement inputID = wait.until(ExpectedConditions.visibilityOfElementLocated(Elements.inputID));
+//        inputID.sendKeys("EC94791");
+//
+//        // step 8 , select the ok button element - > expected: the ok button to be selected to displayed appropriate customer
+//        WebElement okButtonElement = wait.until(ExpectedConditions.presenceOfElementLocated(Elements.okButtonElement));
+//        okButtonElement.click();
 
         // step 9, confirmation of customer id, level, and name - >expected the display of all customer details
         WebElement selectChosenID = wait.until(ExpectedConditions.elementToBeClickable(Elements.selectChosenID));
@@ -91,6 +98,24 @@ public class WhatIfScenario {
         WebElement okButtonSellIn = wait.until(ExpectedConditions.presenceOfElementLocated(Elements.okButtonSellIn));
         okButtonSellIn.click();
 
+        WebElement editButton = wait.until(ExpectedConditions.elementToBeClickable(Elements.editButton));
+        editButton.click();
+
+        WebElement sellOutDate = wait.until(ExpectedConditions.elementToBeClickable(Elements.sellOutDate));
+        sellOutDate.click();
+
+        WebElement clearAllButton = wait.until(ExpectedConditions.elementToBeClickable(Elements.clearAllButton));
+        clearAllButton.click();
+
+        WebElement sellOutStart = wait.until(ExpectedConditions.visibilityOfElementLocated(Elements.sellOutStart));
+        sellOutStart.click();
+
+        WebElement sellOutEnd = wait.until(ExpectedConditions.elementToBeClickable(Elements.sellOutEnd));
+        sellOutEnd.click();
+
+        WebElement okButtonSellOut = wait.until(ExpectedConditions.elementToBeClickable(Elements.okButtonSellOut));
+        okButtonSellOut.click();
+
         // step 16, select the products tab - > expected: the page directs user to products page
         WebElement productCreate = wait.until(ExpectedConditions.elementToBeClickable(Elements.productCreate));
         productCreate.click();
@@ -112,10 +137,10 @@ public class WhatIfScenario {
         cockPit.click();
     }
 
-    @After
-    public void close(){
-        driver.quit();
-    }
+//    @After
+//    public void close(){
+//        driver.quit();
+//    }
 }
 
 
