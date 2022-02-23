@@ -49,7 +49,7 @@ public class WhatIfScenario {
         WebElement levelChoose = wait.until(ExpectedConditions.elementToBeClickable(Elements.levelChoose));
         levelChoose.click();
         {
-            new WebDriverWait(driver, Duration.ofSeconds(5))
+            new WebDriverWait(driver, Duration.ofSeconds(3))
                     .ignoring(StaleElementReferenceException.class)
                     .until((WebDriver d) -> {
                         d.findElement(Elements.customerCode).click();
@@ -64,7 +64,8 @@ public class WhatIfScenario {
         okButtonElement.click();
 
         {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
+        new WebDriverWait(driver, Duration.ofSeconds(3
+        ))
                 .ignoring(StaleElementReferenceException.class)
                 .until((WebDriver d) -> {
                     d.findElement(By.xpath("//tr[@class='sm1-row-no-error  x-grid-row']/child::td/div[text()='EC94791']")).click();
